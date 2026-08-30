@@ -1,8 +1,8 @@
 //importing! 
 import { useEffect, useState } from "react";
 import { Navigate, Route, Routes } from "react-router";
-import Header from "./components/layout/Header";
-import Footer from "./components/layout/Footer";
+import Header from "./componets/layout/Header";
+import Footer from "./componets/layout/Footer";
 import HomePage from "./pages/HomePage";
 import CasesPage from "./pages/CasesPage";
 import CaseDetailsPage from "./pages/CaseDetailsPage";
