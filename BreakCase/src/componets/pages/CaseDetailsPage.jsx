@@ -2,12 +2,14 @@
 //useNavigate lets us move
 //useParams for id in the URL
 import { Link, useNavigate, useParams } from "react-router";
+
 //useState for modal
 import { useState } from "react";
-import Button from "../components/ui/Button";
-import Modal from "../components/ui/Modal";
-import StatusBadge from "../components/ui/StatusBadge";
-import CaseForm from "../components/cases/CaseForm";
+
+//UI components
+import Button from "../ui/Button";
+import Modal from "../ui/Modal";
+import StatusBadge from "../ui/StatusBadge";
 
 //Creates detail page
 export default function CaseDetailsPage({ cases, onUpdateCase, onDeleteCase }) {

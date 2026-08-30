@@ -13,7 +13,9 @@ import AboutPage from "./componets/pages/AboutPage";
 import CaseForm from "./componets/cases/CaseForm";
 import CaseTable from "./componets/cases/CaseTable";
 
-import seedCases from "./componets/data/seedCases";
+import { seedCases } from "./componets/data/seedCases";
+
+import "./App.css";
 //local storage name
 const STORAGE_KEY = "break-case-cases";
 

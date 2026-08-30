@@ -8,10 +8,7 @@ import Button from "../ui/Button"
 import StatusBadge from "../ui/StatusBadge"
 
 //create casecards, caseItem is a prop fo what its recieving, ondelete is a prop for handling delete
-export default function CaseCard({
-    caseItem,
-    onDelete
-}) {
+export default function CaseCard({ caseItem, onDelete }) {
     return (
         <article className="case-card">
             <div className="case-card-top">

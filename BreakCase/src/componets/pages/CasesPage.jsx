@@ -1,10 +1,13 @@
 //imports, use memo lets us filter!
 import { useMemo, useState } from "react";
-import CaseCard from "../components/cases/CaseCard";
-import CaseForm from "../components/cases/CaseForm";
-import CaseTable from "../components/cases/CaseTable";
-import Button from "../components/ui/Button";
-import Modal from "../components/ui/Modal";
+
+import CaseCard from "../cases/CaseCard";
+import CaseForm from "../cases/CaseForm";
+import CaseTable from "../cases/CaseTable";
+
+import Button from "../ui/Button";
+import Modal from "../ui/Modal";
+import StatusBadge from "../ui/StatusBadge";
 
 //create our cases page
 export default function CasesPage({
