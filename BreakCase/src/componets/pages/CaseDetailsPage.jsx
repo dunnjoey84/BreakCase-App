@@ -11,6 +11,9 @@ import Button from "../ui/Button";
 import Modal from "../ui/Modal";
 import StatusBadge from "../ui/StatusBadge";
 
+//Case form for editing cases
+import CaseForm from "../cases/CaseForm";
+
 //Creates detail page
 export default function CaseDetailsPage({ cases, onUpdateCase, onDeleteCase }) {
     //Case ID for URL

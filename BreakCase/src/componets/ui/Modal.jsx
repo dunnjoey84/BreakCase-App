@@ -1,51 +1,85 @@
+
 //Id like to create a pop up window or modal so if you want to delete a case its a pop up (thanks for the help on this one Dad)
 
-//import use effects
+//import useEffect
 import { useEffect } from "react";
-//and button for closing button on modal
+
+//button for closing button on modal
 import Button from "./Button";
 
 //creating modal component
+//title is the title at the top
+//children is whatever we put inside the Modal
+//onClose tells the modal how to close
 export default function Modal({ title, children, onClose }) {
-    //sets title, label, and what to do when modal should close. 
-    //now I set up "when modal is active"
+
+    //when modal is active
     useEffect(() => {
+
+        //checks for keyboard presses
         function handleKeyDown(event) {
+
+            //if escape is pressed, close modal
             if (event.key === "Escape") {
                 onClose();
-            }   
-        } //I just added the ability to hit escape to exit modal, by having an event and then checking if the key pressed is the escape key, if so then close
-        
-        //now adding event listener for keydown (telling which event I care about) then says which funciton to run when it happens
+            }
+        }
+
+        //listen for key presses
         document.addEventListener("keydown", handleKeyDown);
-        //ending event listener when done
-        return () => {document.removeEventListener("keydown", handleKeyDown);
+
+        //remove event listener when modal is done
+        return () => {
+            document.removeEventListener(
+                "keydown",
+                handleKeyDown
+            );
         };
+
     }, [onClose]);
 
-    //actually HTML for Modal
-return (
-  // create backdrop for design
-  <div className="modal-backdrop">
 
-    <section
-      className="modal"
-      onMouseDown={(event) => event.stopPropagation()}
-    >
+    //actual HTML for modal
+    return (
 
-      <div className="modal-header">
-        <h2 id="modal-title">{title}</h2>
+        //backdrop behind modal
+        //clicking backdrop will close modal
+        <div
+            className="modal-backdrop"
+            onMouseDown={onClose}
+        >
 
-        <Button
-      variant="ghost"
-      onClick={onClose}
-    >
-      X
-    </Button>
-      </div>
-    </section>
+            <section
+                className="modal"
 
-  </div>
-)}
-// so here I used something i found, the stop propagation, I read that this will stop the click on the modal from doing unintended things.
-//then I added the close button, and set its variant to ghost for my ccs. I also added the X to make it an X button. 
+                //stops clicking inside modal
+                //from also clicking the backdrop
+                onMouseDown={(event) =>
+                    event.stopPropagation()
+                }
+            >
+
+                <div className="modal-header">
+
+                    <h2 id="modal-title">
+                        {title}
+                    </h2>
+
+                    <Button
+                        variant="ghost"
+                        onClick={onClose}
+                    >
+                        X
+                    </Button>
+
+                </div>
+
+
+                {children}
+
+            </section>
+
+        </div>
+    );
+}
+
